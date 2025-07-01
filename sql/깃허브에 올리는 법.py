@@ -18,6 +18,7 @@ cd my-summary
 예: 정리.md 파일을 여기에 넣는다
 
  3. GitHub에서 저장소 만들기
+
 GitHub 접속: https://github.com
 
 오른쪽 상단 ➕ 클릭 → New repository
@@ -33,8 +34,17 @@ README 체크 해제 → Create repository 클릭
 git init
 git remote add origin https://github.com/yourname/markdown-summary.git
 git add .
-git commit -m "마크다운 정리 업로드"
+git commit -m "깃허브에 올리는법"
 git branch -M main
 git push -u origin main
+
+자주쓰는 깃허브 명령어 
+| 명령어                           | 설명           |
+| ----------------------------- | ------------ |
+| `git init`                    | Git 저장소 초기화  |
+| `git add .`                   | 모든 파일 추가     |
+| `git commit -m "메시지"`         | 커밋 저장        |
+| `git remote add origin [URL]` | GitHub 주소 등록 |
+| `git push -u origin main`     | GitHub로 업로드  |
 
 
