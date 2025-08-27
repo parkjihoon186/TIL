@@ -1,0 +1,17 @@
+import pandas as pd
+
+# CSV 파일이 있다고 가정하고 불러오기
+df = pd.read_csv("jeju_tourism_data.csv")  # 파일명은 저장한 걸로 바꿔
+
+# 목적 관련 컬럼만 추출
+purpose_cols = [
+    "목적별(레저스포츠)", "목적별(회의및업무)", "목적별(휴양및관람)",
+    "목적별(친지방문)", "목적별(교육여행)", "목적별(기타방문)"
+]
+
+# 각 목적별 합계 구하기
+purpose_sum = df[purpose_cols].sum().sort_values(ascending=False)
+
+# 출력
+print("2024년 중 목적별 총 방문객 수:")
+print(purpose_sum)

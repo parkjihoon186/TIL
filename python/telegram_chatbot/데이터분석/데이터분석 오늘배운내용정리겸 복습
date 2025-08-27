@@ -1,0 +1,57 @@
+🛳️ Titanic 데이터 분석 - 개념 복습
+1. 📂 데이터셋 불러오기
+python
+복사
+편집
+import seaborn as sns
+titanic = sns.load_dataset('titanic')
+2. ❓ 결측치(Missing Values) 확인
+python
+복사
+편집
+# 각 열의 결측치 개수
+missing = titanic.isna().sum()
+missing[missing > 0]
+
+# 결측치 비율 (퍼센트)
+missing_p = titanic.isna().mean() * 100
+missing_p[missing_p > 0]
+3. 🧼 결측치 처리
+python
+복사
+편집
+# age의 평균 구하기
+mean_age = titanic['age'].mean()
+
+# 결측치를 평균값으로 대체
+titanic_processed = titanic.copy()
+titanic_processed['age'] = titanic['age'].fillna(mean_age)
+4. 🧪 마스킹 (Masking)
+python
+복사
+편집
+# 예시: 특정 위치가 True인 마스크
+mask = [True, False, True, False, False, False, False, False, True, True, False, True]
+
+# 마스크를 씌워서 확인
+titanic_processed[mask]
+5. 💡 자주 쓰이는 용어
+용어	뜻
+결측치	값이 비어 있는 상태 (예: NaN)
+평균 대체	결측치를 평균값으로 채우는 방식
+마스킹	True/False 리스트로 특정 조건 필터링
+인코딩	문자 → 숫자로 변환 (예: 'male' → 1, 'female' → 0)
+범주형 변수	텍스트/이름처럼 분류되는 값 (예: 성별, 선실등급)
+수치형 변수	숫자로 계산 가능한 값 (예: 나이, 요금)
+.isna()	결측치 여부 확인
+.fillna()	결측치 대체
+.mean()	평균값 계산
+.copy()	원본 데이터 보호용 복사본 생성
+
+6. 🧠 왜 인코딩이 필요한가?
+머신러닝 모델은 숫자만 계산할 수 있음.
+
+‘male’, ‘female’처럼 문자로 된 데이터는 직접 계산이 불가능함.
+
+그래서 0과 1처럼 숫자로 바꿔주는 과정(= 인코딩) 이 필요함.
+

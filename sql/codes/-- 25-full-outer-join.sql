@@ -1,0 +1,1 @@
+-- 25-full-outer-join.sql
